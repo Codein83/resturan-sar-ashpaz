@@ -1,0 +1,980 @@
+/* اضافه کردن فونت */
+@font-face {
+    font-family: 'tanha';
+    src: url('../font/Tanha.eot'),
+         url('../font/Tanha.eot?#iefix') format('embedded-opentype'),
+         url('../font/Tanha.woff') format('woff'),
+         url('../font/Tanha.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Estedad';
+    src: url('../font/Estedad-Bold.ttf'),
+         url('../font/Estedad-Medium.ttf') format('embedded-opentype'),
+         url('../font/Estedad-Regular.ttf') format('woff');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'vazir';
+    src: url('../font/Vazirmatn-Bold.ttf'),
+         url('../font/Vazirmatn-Medium.ttf') format('embedded-opentype'),
+         url('../font/Vazirmatn-Regular.ttf') format('woff');
+    font-weight: normal;
+}
+
+/* تنظیمات اولیه */
+html{
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+*,
+::after,
+::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style-type: none;
+}
+
+body{
+    font-family: 'tanha';
+    max-width: 1300px;
+    overflow-x: hidden;
+    background: rgb(216, 216, 216);
+    height: 100vh;
+}
+
+:root{
+    --white-color1: aliceblue;
+    --white-color2: antiquewhite;
+    /* --white-color3: blueviolet; */
+    --white-color3: #F875AA;
+    --white-color4: #FDEDED;
+    --white-color5: #EDFFF0;
+    --white-color6: #AEDEFC;
+}
+
+/* تنظیات بک گراند هدر */
+.header{
+    height: 350px;
+    width: 100%;
+    background-image: url("../image/2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(95, 95, 95);
+    background-blend-mode: multiply;
+}
+
+/* تنظیمات نوبار */
+.navBar{
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 235, 215, 0.8); /* شفافیت فقط روی بک‌گراند */
+    transition: background-color 0.3s ease;
+    position: fixed;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    align-content: center;
+    justify-content: space-evenly;
+    justify-items: center;
+    z-index: 999;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1)0px 16px 56px;
+}
+
+.navBar.scrolled {
+  background-color: rgba(255, 255, 255, 1); /* حالت مات کامل */
+}
+
+.logo{
+    position: absolute;
+}
+
+.logo img{
+    width: 60px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.login{
+    display: block;
+    background-color: var(--white-color3);
+    border-radius: 8px;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 12px;
+    right: 6px;
+}
+
+.login-icon{
+   position: absolute;
+   top: 4px;
+   left: 5px;
+}
+
+/* تنظیمات منوی همبرگری */
+.checkbox{
+    position: absolute;
+    top: 15px;
+    left: 7px;
+    display: block;
+    width: 30px;
+    height: 25px;
+    z-index: 5;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 1002;
+}
+
+.hamburger-lines{
+    width: 30px;
+    height: 25px;
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 7px;
+    z-index: 3;
+    display: grid;
+    gap: 0.25rem;
+    z-index: 1001;
+}
+
+.line{
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: var(--white-color3);
+}
+
+.line1{
+    transform-origin: 0% 0%;
+    transition: transform .4s ease-in-out;
+}
+
+.line2{
+    transition: transform .2s ease-in-out;
+}
+
+.line3{
+    transform-origin: 0% 100%;
+    transition: transform .4s ease-in-out;
+}
+
+/* تغیر ظاهر دکمه منوی همبرگری */
+.menu input[type="checkbox"]:checked ~ .menu-items {
+    transform: translateX(0);
+} 
+
+.menu input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+    transform: rotate(45deg);
+}
+
+.menu input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+    transform: scaleY(0);
+}
+
+.menu input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-45deg);
+}
+
+/* باز شدن منوهمبرگری */
+.menu-items{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    z-index: 1000;
+    background: rgba(0, 153, 255, 0.05);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px) !important;
+    border: 2px solid rgba(232, 232, 232, 0.25);
+    padding-top: 70px;
+    width: 100%;
+    height: 100vh;
+    transform: translate(-150%);
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.titel-menu{
+    position: absolute;
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 170px;
+    background-color: var(--white-color1);
+    border-radius: 10px;
+    border: solid 2px var(--white-color3);
+    font-size: 15px;
+    padding: 5px;
+    box-shadow: 0 3px 5px;
+    z-index: 1001;
+}
+
+.card-center{
+    width: 330px;
+    background-color: var(--white-color1);
+    margin: 90px auto;
+    padding: 15px;
+    border-radius: 20px;
+    border: solid 2px var(--white-color3);
+    box-shadow: 0 5px 15px;
+}
+
+.menu-item{
+    line-height: 60px;
+    background-color: var(--white-color4) ;
+    margin-top: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 2.5px var(--white-color3);
+    color: rgb(66, 66, 66);
+    font-size: 20px;
+}
+
+.menu-item:hover{
+    background-color: var(--white-color1);
+    color: var(--white-color3);
+    text-shadow: 0 2px 1px black;
+}
+
+/* قسمت ویژگی های سایت */
+.site-features{
+    text-align: center;
+    padding: 120px 10px 15px 10px;
+    font-family: "vazir";
+}
+
+.titel-feature{
+    color: var(--white-color1);
+    font-size: 20px; 
+}
+
+.content-search{
+    width: 80%;
+    height: 20%;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 0 2.5px var(--white-color4);
+    border: 1.5px solid transparent;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 100%;
+    margin: 30px auto ;
+}
+
+.search-box{
+    width: 100%;
+    height: 35px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    font-family:'estandard';
+    outline: none;
+    padding: 0 10px;
+}
+
+.content-search input::placeholder{
+    color: var(--white-color2);
+    text-align: center;
+    font-family: "tanha";
+    position: relative;
+    left: -40px;
+}
+
+.search-btn{
+    width: 60px;
+    height: 30px;
+    background-color: var(--white-color4);
+    border-radius: 5px;
+    border: none;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    font-family: "vazir";
+}
+
+.content-search .search-btn:hover{
+    background-color: var(--white-color2);
+    color: var(--white-color4);
+    cursor: pointer;
+}
+
+.features{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    justify-content: center;
+    justify-items: center;
+    margin-top: 35px;
+}
+
+.feature-item{
+    margin-bottom: 10px;
+    width: 30px;
+}
+
+.text-feature{
+    color: var(--white-color1);
+    font-size: 14px; 
+}
+
+/* قسمت تخفیفات */
+.container-off-food{
+    width: 95%;
+    text-align: center;
+    height: 140px;
+    display: grid;
+    grid-template-areas:
+    "a b c d e f";
+    border: 2px dashed var(--white-color3);
+    border-radius: 10px 0 10px 0;
+    margin: auto;
+    overflow: scroll;
+    position: relative;
+    bottom: 10px;
+}
+
+.title-off{
+    width: 308px;
+    text-align: right;
+    font-size: 10px;
+    position: relative;
+    top: 27px;
+    right: 25px;
+}
+
+.off-food{
+    width: 90px;
+    height: 90px;
+    padding: 20px 0;
+    position: relative;
+    top: 25px;
+}
+
+.img_off_food{
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1)0px 16px 56px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.off-info{
+    background-color: var(--white-color4); 
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    right: 10px;
+    bottom: 60px;
+    border: 1px solid;
+}
+
+.off-info h3{
+    position: relative;
+    top: 6px;
+    font-size: 12px;
+}
+
+.food1{
+    grid-area: a;
+}
+
+.food2{
+    grid-area: b;
+}
+
+.food3{
+    grid-area: c;
+}
+
+.food4{
+    grid-area: d;
+}
+
+.food5{
+    grid-area: e;
+}
+
+.food6{
+    grid-area: f;
+}
+
+/* قسمت معرفی نامه */
+.info-container{
+    width: 340px;
+    height: 100vh;
+    margin: 0 10px;
+}
+
+.box-info{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+}
+
+.info-img{
+    width: 150px;
+    height: 150px;
+}
+
+.pic-info{
+    width: 150px;
+    height: 150px;
+}
+
+.info{
+    width: 170px;
+    height: 120px;
+    margin: 20px 8px;
+    font-size: 12px;
+    padding-top: 15px;
+    text-align: justify;
+}
+
+.info a{
+    font-size: 10px;
+}
+
+/* قسمت انتخاب غذا */
+.blog-center{
+    margin: 20px auto;
+    width: 100%;
+    /* display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1rem 0.1rem;
+    justify-content: space-evenly;
+    justify-items: center; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card{
+    perspective: 1500px;
+    position: relative;
+}
+
+.card-side{
+    transition: all 1.5s linear; 
+    backface-visibility: hidden;
+}
+
+.card:hover .card-front{
+    transform: rotateY(-180deg);
+}
+
+.img_select_food{
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+    border: 2px solid var(--white-color3);
+    padding: 5px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1)0px 16px 56px;
+}
+
+.card-back{
+    transform: rotateY(180deg);
+    background: var(--white-color2);
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 12px;
+}
+
+.card:hover .card-back{
+    transform: rotateY(0);
+    border: 1px solid var(--white-color3);
+    padding: 5px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1)0px 16px 56px;
+}
+
+.btn-select-food{
+    all: unset;
+    color: black;
+    display: inline-block;
+    width: 66px;
+    height: 20px;
+    position: absolute;
+    top: 23px;
+    right: 0px;
+    background-color: var(--white-color4);
+    border-radius: 8px;
+    font-size: 8px;
+    text-align: center;
+}
+
+/* قسمت لیست غذاها */
+.titel-food{
+    width: 100%;
+    height: 50px;
+    background-color: var(--white-color4);
+    text-align: center;
+    border-top: dashed 2px var(--white-color3);
+    border-bottom: dashed 2px var(--white-color3);
+}
+
+span{
+    font-size: 15px;
+}
+
+.menu-foods{
+    margin: 30px 10px;
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    justify-items: center;
+    gap: 30px 4px;
+}
+
+.card-foods{
+    height: 140px;
+    width: 140px;
+    box-shadow: 0 0 15px black;
+    border-radius: 20px;
+    transition: filter 0.5s ease;
+}
+
+.img-foods{
+    border-radius: 20px;
+    border: dashed 2px rgb(184, 145, 192);
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+}
+
+.card-foods:hover .img-foods{
+    background: rgba(0, 153, 255, 0.05);
+    filter: blur(2px);
+}
+
+.info-food{
+    display: none;
+    width: 125px;
+    height: 110px;
+    background-color: gray;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    right: 7px;
+    bottom: 135px;
+    text-align: center;
+    font-size: 11px;
+}
+
+.card-foods:hover .info-food{
+    display: block;
+}
+
+.info-food div{
+    border: solid 2px var(--white-color1);
+    width: 105px;
+    height: 90px;
+    border-radius: 5px;
+    padding: 10px ;
+}
+
+.btn-order{
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: 'vazir';
+    font-size: 10px;
+    position: absolute;
+    bottom: 0px;
+    right: 29px;
+}
+
+/* فوتر */
+.footer{
+    height: 330px;
+    background-color: var(--white-color6);
+    text-align: center;
+    padding-top: 15px;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.footer-paragraph{
+    text-align: justify;
+    padding: 15px;
+    direction: rtl;
+    height: 205px;
+}
+
+.contact{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+.pic-social{
+    width: 35px;
+    height: 35px;
+    padding: 0 5px;
+}
+
+.pic-footer{
+    width: 125px;
+    position: relative; 
+    bottom: 12px;
+    z-index: 997;
+}
+
+.pic-contacts{
+    width: 25px;
+    height: 25px;
+}
+
+.privacy-policy{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background: var(--white-color5);
+    padding: 5px 10px;
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+/* login */
+.container_login{
+    height: 589px;
+    width: 300px;
+    margin: 115px auto;
+    border-radius: 10px;
+    position: relative;
+    bottom: 588px;
+}
+
+.back_container{
+    height: 100%;
+    background-image: url("../image/89.jfif"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(5px);
+    border-radius: 10px;
+}
+
+.title{
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    background: var(--white-color4);
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid black;
+    z-index: 998;
+
+}
+
+.form_login{
+    position: relative;
+    bottom: 512px;
+    right: 5px;
+    line-height: 70px;
+    margin: 20px;
+}
+
+.form_login label{
+    color: #fff;
+}
+
+.form_login input{
+    width: 150px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid rgb(116, 112, 112);
+    padding: 10px;
+    font-size: 14px;
+}
+
+.form_login input:first-of-type{
+    position: relative;
+    right: 26px;
+}
+
+.form_login input:nth-of-type(2){
+    position: relative;
+    right: 45px;
+}
+
+.border{
+    border: 2px solid black;
+    width: 303px;
+    height: 590px;
+    border-radius: 10px;
+    position: relative;
+    top: 116px;
+    left: 0px;
+    margin: auto;
+}
+
+.btns-login {
+    position: relative;
+    top: 80px;
+    right: 5px;
+    width: 250px;
+    height: 40px;
+}
+
+.btn-login{
+    position: absolute;
+    bottom: 0px;
+    left: 130px;
+    width: 50%;
+    height: 40px;
+    border-radius: 0 10px 10px 0;
+    background: var(--white-color4);
+}
+
+.btn-home{
+    position: absolute;
+    right: 119px;
+    bottom: 0px;
+    width: 50%;
+    height: 40px;
+    background: var(--white-color4);
+    border-radius:10px 0 0 10px;
+}
+
+.home-link{
+    font-size: 15px;
+    color: rgb(37, 37, 37);
+    font-family: "tanha";
+}
+
+.login-link{
+    font-size: 18px;
+    color: black;
+    font-family: "tanha";
+    width: 100%;
+    height: 36px;
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.btn-login:hover .login-link{
+    color: rgb(37, 37, 37);
+}
+
+.form_login p{
+    color: #fff;
+    position: relative;
+    top: 62px;
+    right: 40px;
+    font-size: 10px;
+}
+
+.form_login p a{
+    color: rgb(192, 192, 192);
+}
+
+.form_login p :hover{
+    color: var(--white-color4);
+}
+
+.footer-info-login{
+    color: #fff;
+    width: 299px;
+    background: #91919198;
+    position: relative;
+    bottom: 397px;
+    left: 1px;
+    font-size: 14px;
+    text-align: center;
+    height: 35px;
+    padding: 5px;
+    border-radius: 0 0 10px 10px;
+}
+
+/* submit */
+.container_submit{
+    height: 589px;
+    width: 300px;
+    margin: 115px auto;
+    border-radius: 10px;
+    position: relative;
+    bottom: 588px;
+}
+
+.back_container{
+    height: 100%;
+    background-image: url("../image/89.jfif"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(5px);
+    border-radius: 10px;
+}
+
+.form_submit{
+    position: relative;
+    bottom: 560px;
+    right: 5px;
+    line-height: 65px;
+    margin: 20px;
+}
+
+.form_submit label{
+    color: #fff;
+}
+
+.form_submit input{
+    width: 150px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid rgb(116, 112, 112);
+    padding: 10px;
+    font-size: 14px;
+}
+
+.form_submit input:first-of-type{
+    position: relative;
+    right: 65px;
+}
+
+.form_submit input:nth-of-type(2){
+    position: relative;
+    right: 9px;
+}
+
+.form_submit input:nth-of-type(3){
+    position: relative;
+    right: 21px;
+}
+
+.form_submit input:nth-of-type(4){
+    position: relative;
+    right: 42px;
+}
+
+.form_submit input:nth-of-type(5){
+    position: relative;
+    right: 8px;
+}
+
+.form_submit input:nth-of-type(6){
+    position: relative;
+    right: 14px;
+}
+
+.btns-submit {
+    position: relative;
+    top: 30px;
+    right: 5px;
+    width: 250px;
+    height: 40px;
+}
+
+.btn-submit{
+    position: absolute;
+    bottom: 0px;
+    left: 130px;
+    width: 50%;
+    height: 40px;
+    border-radius: 0 10px 10px 0;
+    background: var(--white-color4);
+}
+
+.submit-link{
+    font-size: 18px;
+    color: black;
+    font-family: "tanha";
+    width: 100%;
+    height: 36px;
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.btn-submit:hover .submit-link{
+    color: rgb(37, 37, 37);
+}
+
+.back-to-login{
+    color: rgb(192, 192, 192);
+    position: relative;
+    top: 10px;
+    right: 94px;
+    font-size: 10px;
+}
+
+.back-to-login:hover{
+    color: var(--white-color4);
+}
+
+.footer-info-submit{
+    color: #fff;
+    width: 299px;
+    background: #91919198;
+    position: relative;
+    bottom: 573px;
+    left: 1px;
+    font-size: 14px;
+    text-align: center;
+    height: 35px;
+    padding: 5px;
+    border-radius: 0 0 10px 10px;
+}
+
+/* blog */
+.container-blog{
+    position: relative;
+    top: 100px;
+    left: 17px;
+    margin: 0 30px;
+}
+
+.img-blog img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1.5px solid rgb(0, 0, 0);
+}
+
+.info-blog{
+    width: 300px;
+    height: 270px;
+    background: var(--white-color5);
+    opacity: 0.9;
+    height: 270px;
+    position: relative;
+    bottom: 45px;
+    right: 30px;
+    border-radius: 20px;
+    padding: 10px;
+    color: rgb(36, 36, 36);
+    text-align: justify;
+}
+
+.btn-blog{
+    position: relative;
+    right: 175px;
+    bottom: 26px;
+    padding: 7px;
+    background: var(--white-color6);
+    border: none;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-radius: 0 10px 0 20px;
+    cursor: pointer;
+    font-family: 'tanha';
+}
