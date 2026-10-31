@@ -16,6 +16,7 @@ window.addEventListener('scroll', function () {
   });
 
 // اسکرول خودکار و انیمیشن اسلایدر
+// اسلایدر با افکت محو شدن و ظاهر شدن (Crossfade)
 document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.querySelector(".carousel");
 
@@ -30,13 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentIndex = 0;
     let autoplay = null;
-    let animationFrame = null;
 
     // تنظیمات زمان‌بندی
-    const autoplayDelay = 8000; // تعویض خودکار هر ۸ ثانیه
-    const transitionDuration = 2000; // حرکت بین اسلایدها: ۲ ثانیه
+    const autoplayDelay = 6500;
 
-    // ساخت نقطه‌های پایین اسلایدر
+    // ساخت نقطه‌های پایین اسلایدر، در صورت وجود
     if (dotsContainer) {
         dotsContainer.innerHTML = "";
 
@@ -63,38 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ? Array.from(dotsContainer.querySelectorAll(".slider-dot"))
         : [];
 
-    // حرکت نرم با مدت‌زمان قابل تنظیم
-    function animateScrollTo(targetLeft) {
-    if (animationFrame !== null) {
-        cancelAnimationFrame(animationFrame);
-    }
-
-    const startLeft = carousel.scrollLeft;
-    const distance = targetLeft - startLeft;
-    const startTime = performance.now();
-
-    function step(now) {
-        const elapsed = now - startTime;
-        const progress = Math.min(elapsed / transitionDuration, 1);
-
-        // حرکت نرم و پیوسته
-        const easedProgress =
-            0.5 - Math.cos(Math.PI * progress) / 2;
-
-        carousel.scrollLeft =
-            startLeft + distance * easedProgress;
-
-        if (progress < 1) {
-            animationFrame = requestAnimationFrame(step);
-        } else {
-            carousel.scrollLeft = targetLeft;
-            animationFrame = null;
-        }
-    }
-
-    animationFrame = requestAnimationFrame(step);
-}
-
     // نمایش اسلاید انتخاب‌شده
     function showSlide(index) {
         currentIndex = (index + slides.length) % slides.length;
@@ -105,15 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         dots.forEach((dot, i) => {
             dot.classList.toggle("active", i === currentIndex);
+
             dot.setAttribute(
                 "aria-current",
                 i === currentIndex ? "true" : "false"
             );
         });
-
-        const targetLeft = slides[currentIndex].offsetLeft;
-
-        animateScrollTo(targetLeft);
     }
 
     // شروع تعویض خودکار
@@ -147,11 +111,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // اجرای اسلاید اول
+    // نمایش اسلاید اول
     showSlide(0);
     startAutoplay();
 
-    // توقف تایمر هنگام مخفی بودن تب مرورگر
+    // توقف تعویض خودکار هنگام مخفی بودن تب
     document.addEventListener("visibilitychange", () => {
         if (document.hidden) {
             clearInterval(autoplay);
