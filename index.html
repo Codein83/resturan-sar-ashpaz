@@ -3,259 +3,393 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="image/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="image/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="image/favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/image/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/image/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/image/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="css/style.css">
-    <title>رستوران سرآشپز</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>رستوران سرآشپز | غذای خوشمزه و باکیفیت</title>
+    <meta name="description" content="رستوران سرآشپز با ارائه غذاهای خوشمزه و باکیفیت، تجربه‌ای لذت‌بخش از یک وعده غذایی را برای شما فراهم می‌کند.">
 </head>
 <body>
-    <!-- هدر -->
-     <div class="header">
-        <div class="navbar scrolled">
-            <div class="login">
-                <a class="login-icon" href="login.html">
-                    <img src="image/person.svg" alt="ثبت نام">
-                </a>
-            </div>
+    <!-- لودینگ -->
+    <div class="preload " data-preaload>
+        <div class="circle"></div>
+        <p class="text">رستوران سرآشپز</p>
+    </div>
+
+    <!-- تاپ بار -->
+    <div class="topbar-container">
+        <div class="adress-topbar-container">
+            <address class="topbar-items">
+                <svg class="svg-icons">
+                    <use href="./assets/images/icon-svg/sprite.svg#pinDrop-icon"></use>
+                </svg>
+                <span class="span">کرج ،محمدشهر ،روبروی تلوزیون شهری ،پلاک21</span>
+            </address>
             
-            <div class="mobile-login"> <!--  دکمه ورود و ثبت نام برای ریسپانسیو -->
-                <div class="signin-btn"> <!-- دکمه ورود  -->
-                    <a href="login.html">
-                        <p>ورود</p>
-                    </a>
-                </div>
+            <div class="separator"></div>
 
-                <div class="signup-btn"> <!-- دکمه ثبت نام  -->
-                    <a href="submit.html">
-                        <p>ثبت نام</p>
-                    </a>
-                </div>
+            <div class="topbar-items">
+                <svg class="svg-icons">
+                    <use href="./assets/images/icon-svg/sprite.svg#schedule-icon"></use>
+                </svg>
+                <span class="span">تایم کاری: 8صبح تا 10شب</span>
             </div>
 
-            <div class="logo">
-                <img src="image/1.png" alt="سرآشپز">
-            </div>
         </div>
 
-        <div class="menu">  <!-- منو همبرگری -->
-            <input type="checkbox" class="checkbox">  <!-- اکتیو کردن منو با چکباکس -->
-            <div class="hamburger-lines"> <!-- ساخت خطوط منوی کشویی -->
-                <span class="line line1"></span>
-                <span class="line line2"></span>
-                <span class="line line3"></span>
-            </div>
-              <div class="menu-items"> <!-- محتوای داخل منوی همبرگری -->
-                <h2 class="menu-title">منو سایت سرآشپز</h2>
-                <ul class="card-center">
-                    <li>
-                        <a class="menu-link" href="index.html"><h2 class="menu-item">صفحه اصلی</h2></a>
-                    </li>
-                    <li>
-                        <a class="menu-link" href="foods-menu.html"><h2 class="menu-item">غذاهای اصلی</h2></a>
-                    </li>
-                    <li>
-                        <a class="menu-link" href="deserts-menu.html"><h2 class="menu-item">دسر</h2></a>
-                    </li>
-                    <li>
-                        <a class="menu-link" href="drinks-menu.html"><h2 class="menu-item">نوشیدنی ها</h2></a>
-                    </li>
-                    <li>
-                        <a class="menu-link" href="contact.html"><h2 class="menu-item">ارتباط با ما</h2></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <div class="contact-topbar-container">
+            <a href="tel: +98-9026469030" class="topbar-items">
+                <span class="span">09026469030</span>
+                <svg class="svg-icons">
+                    <use href="./assets/images/icon-svg/sprite.svg#call-icon"></use>
+                </svg>
+            </a>
 
-        <div class="site-features">
-            <h2 class="feature-title">سفارش آنلاین غذا از رستوران سر آشپز</h2>
+            <div class="separator"></div>
+
+            <a href="mailto: resturan-sarashpaz@gmail.com" class="topbar-items">
+                <span class="span">resturan-sarashpaz@gmail.com</span>
+                <svg class="svg-icons">
+                    <use href="./assets/images/icon-svg/sprite.svg#mail-icon"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- هدر -->
+    <header class="slider-container">
+        <!-- قسمت هدر فیکس -->
+        <div class="header-container navbar">
+            <!-- لوگو رستوران -->
+            <img class="logo-img" src="./assets/images/general-medi/images/logo.webp" alt="لوگو رستوران سرآشپز">
+            
+            <!-- سرچ باکس رستوران -->
             <div class="content-search">
-                <input type="search" class="search-box" placeholder="غذای مورد علاقتو اینجا سرچ کن">
+                <input type="search" class="search-box" placeholder="دنبال غذای مورد علاقت میگردی؟">
                 <button type="button" class="search-btn">جستوجو</button>
             </div>
-            <div class="features">
-                <img class="feature-item" src="image/storefront.svg" alt="خرید آنلاین">
-                <img class="feature-item" src="image/schedule.svg" alt="ارسال سریع">
-                <img class="feature-item" src="image/shopping.svg" alt=">پرداخت انلاین">
-                <p class="feature-text">خرید آنلاین</p>
-                <p class="feature-text">ارسال سریع</p>
-                <p class="feature-text">پرداخت انلاین</p>
-            </div>
-        </div>
-     </div>
-     
-     <!-- لیست تخیف -->
-    <div class="title-off">
-        <h1>تخفیفات ویژه و دائمی رستوران سرآشپز</h1>
-    </div>
-    
-    <div class="container-off-food">
-        <div class="off-food food1">
-            <img class="img_off_food" src="image/foods/10.jpg" alt="خورشت انار">
-            <p>خورشت انار</p>
-            <div class="off-info">
-            <h3>20%</h3>
-            </div>
-        </div>
 
-        <div class="off-food food2">
-            <img class="img_off_food" src="image/foods/15.jpg" alt="دلمه">
-            <p>دلمه</p>
-            <div class="off-info">
-            <h3>15%</h3>
-            </div>
-        </div>
+            <!-- قسمت ثبت نام -->
+             <button class="regester-btn">
+                <a class="regester-link" href="login.html">
+                    <svg class="svg-icons">
+                        <use href="./assets/images/icon-svg/sprite.svg#person-icon"></use>
+                    </svg>
+                    <p>ثبت نام</p>
+                </a>
+             </button>
 
-        <div class="off-food food3">
-            <img class="img_off_food" src="image/foods/30.jpg" alt="استیک">
-            <p>استیک</p>
-            <div class="off-info">
-            <h3>25%</h3>
-            </div>
-        </div>
+            <!-- قسمت منوی همبرگری -->
+            <div class="menu">  <!-- منو همبرگری -->
+                <input type="checkbox" class="checkbox">  <!-- اکتیو کردن منو با چکباکس -->
+                <div class="hamburger-lines"> <!-- ساخت خطوط منوی کشویی -->
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+                <div class="menu-items"> <!-- محتوای داخل منوی همبرگری -->
+                    <h2 class="menu-title">منو سایت سرآشپز</h2>
+                    <ul class="card-center">
+                        <li>
+                            <a class="menu-link" href="index.html"><h2 class="menu-item">صفحه اصلی</h2></a>
+                        </li>
 
-        <div class="off-food food4">
-            <img class="img_off_food" src="image/deserts/74.jpg" alt="ژله موزی">
-            <p>ژله موزی</p>
-            <div class="off-info">
-            <h3>10%</h3>
-            </div>
-        </div>
+                        <li>
+                            <a class="menu-link" href="iranian-menu.html"><h2 class="menu-item">غذاهای ایرانی</h2></a>
+                        </li>
 
-        <div class="off-food food5">
-            <img class="img_off_food" src="image/foods/23.jpg" alt="سالاد ماکارانی">
-            <p>سوپ</p>
-            <div class="off-info">
-            <h3>10%</h3>
-            </div>
-        </div>
+                        <li>
+                            <a class="menu-link" href="foreign-menu.html"><h2 class="menu-item">غذاهای خارجی</h2></a>
+                        </li>
 
-        <div class="off-food food6">
-            <img class="img_off_food" src="image/drinks/60.jpg" alt="سالاد ماکارانی">
-            <p>دوغ </p>
-            <div class="off-info">
-            <h3>5%</h3>
-            </div>
-        </div>
-    </div>
+                        <li>
+                            <a class="menu-link" href="fastfood-menu.html"><h2 class="menu-item">فست فود ها</h2></a>
+                        </li>
 
-    <!-- معرفی نامه کوتاه -->
-    <div class="info-container">
-        <!-- معرفی کوتاه سراشپزها -->
-         <article class="box-info">
-            <div class="info-img">
-                <img class="info-picture" src="image/90.jpeg" alt="عکس دسته جمعی آشپزها">
-            </div>
-            <div class="info">
-                <p>سرآشپزهای رستوران سرآشپز از بهترین سراشپزهای منطقه انتخاب شدند تا شما با بهترین طعم ها خاطره بسازید... <a href="blog-chef.html">درباره سراشپزهای ما</a></p>
-            </div>
-         </article>
+                        <li>
+                            <a class="menu-link" href="cafe-bakery.html"><h2 class="menu-item">کافه بیکری</h2></a>
+                        </li>
 
-        <!-- معرفی کوتاه نحوه پخت -->
-         <article class="box-info">
-            <div class="info">
-                <p>غذاهای رستوران سرآشپز از بهترین مواد غذایی تهیه شدند تا شما بهترین طعم هارا تجربه کنید... </p>
-            </div>
-            <div class="info-img">
-                <img class="info-picture" src="image/91.jpeg" alt="عکس غذاها ">
-            </div>
-         </article>
+                        <li>
+                            <a class="menu-link" href="book-table.html"><h2 class="menu-item">رزرو میز</h2></a>
+                        </li>
 
-        <!-- معرفی کوتاه سالادها -->
-         <article class="box-info">
-            <div class="info-img">
-                <img class="info-picture" src="image/92.jpeg" alt="عکس سالادها">
-            </div>
-            <div class="info">
-                <p>سالادهای رستوران سرآشپز از بهترین موادغذایی ، صیفیجات و سبزیجات تهیه شدند چون شما لایق بهترین طعم ها هستید... </p>
-            </div>
-         </article>
-
-        <!-- معرفی کوتاه از نحوه پخت کیک و دسر -->
-         <article class="box-info">
-            <div class="info">
-                <p>کیک و دسرهای رستوران سرآشپز توسط باتجربه ترین قناد و با کیفیت ترین مواد و با طعم های خانگی پخته شدند تا شما خاطره های خوب و نوستالژیتان را دوباره زنده کنید... </p>
-            </div>
-            <div class="info-img">
-                <img class="info-picture" src="image/93.jpeg" alt="عکس کیک و دسر">
-            </div>
-         </article>
-
-        <!-- معرفی کوتاه از نوشیدنی ها -->
-         <article class="box-info">
-            <div class="info-img">
-                <img class="info-picture" src="image/90.jpeg" alt="عکس نوشیدنی ها">
-            </div>
-            <div class="info">
-                <p>نوشیدنی های سرآشپز از معتبرترین شرکت ها و با کیفیت ترین میوه ها تامین میشوند چون سلامتی شما برای ما اولویت بالایی دارد... </p>
-            </div>
-         </article>
-    </div>
-
-    <!-- فوتر -->
-    <div class="footer">
-        <h3 class="footer-title">سرآشپز،پلتفرم سفارش آنلاین غذا</h3>
-        <div class="footer-partition">
-            <div class="info-partition">
-                <img src="./image/1.png" alt="لوگو سرآشپز" class="footer-logo">
-                <p class="footer-paragraph footer1">
-                    رستوران ما با انواع غذاهای خوشمزه وبا کیفیت،آماده است تا لحظات شماراخاطره انگیز کند.با رستوران ما طعم واقعی غذاهای خانگی را به مجالس خود بیاورید.ما درارائه انواع غذاهای سنتی و مدرن متخصص هستیم و کیفیت و طعم بی نظیر را تضمین میکنیم.مطمئن باشید که سفارشات شمارا با عشق و دقت تهیه و ارسال میکنیم
-                </p>
-                <div class="footer-enamad">
-                    <img src="/image/E-namad.png" alt="اینماد" class="enamd-logo">
-                    <img src="./image/zarin-pal.png" alt="زرین پال" class="enamd-logo">
+                        <li>
+                            <a class="menu-link" href="about-us.html"><h2 class="menu-item">درباره ما</h2></a>
+                        </li>
+                    </ul>
+                    <img class="etemad-logo" src="./assets/images/general-medi/images/zarin-pal.webp" alt="">
+                    <img class="etemad-logo" src="./assets/images/general-medi/images/E-namad.webp" alt="">
                 </div>
             </div>
-            <div class="media-partition">
-                <ul>
-                    <li>
-                        <h3>ایمیل:</h3>
-                        <p>info@gmail.come</p>
-                    </li>
-                    <li>
-                        <h3>شماره تماس:</h3>
-                        <p>02636331234</p>
-                    </li>
-                    <li>
-                        <h3>فکس:</h3>
-                        <p>123456789</p>
-                    </li>
-                    <li>
-                        <h3>ادرس:</h3>
-                        <p>تهران،خیابان ولیعصر،خیابان فاطمی،نبش کوچه یازدهم،پلاک21</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="cantact-partirion">
-                <ul>
-                    <li>
-                        <h3>اینستاگرام:</h3>
-                        <p>sarAshpaz.ir</p>
-                    </li>
-                    <li>
-                        <h3>تلگرام:</h3>
-                        <p>sarAshpaz_ir</p>
-                    </li>
-                    <li>
-                        <h3>فیسبوک:</h3>
-                        <p>sarAshpaz.ir</p>
-                    </li>
-                </ul>
-            </div>
         </div>
-        
-        <div class="contact">
-            <div class="social-media">
-                <img class="pic-social" src="image/instagram.svg" alt="اینستاگرام">
-                <img class="pic-social" src="image/telegram.svg" alt="تلگرام">
-                <img class="pic-social" src="image/facebook.svg" alt="فیسبوک">
+
+        <!-- قسمت باکس اسلایدی -->
+         <div class="slider-wrapper">
+            <div class="carousel">
+                <div class="slide interior-slider">
+                    <div class="info-container">
+                        <h3 class="slider-title">جایی برای طعم‌های ماندگار</h3>
+                        <p class="slider-info">فضایی دلنشین برای تجربه غذاهای متنوع و ساختن لحظه‌های به‌یادماندنی.</p>
+                        <a class="slider-btn bouble-btn" href="about-us.html">درباره ما بیشتر بخوانید</a>
+                    </div>
+                </div>
+
+                <div class="slide iranian-slider">
+                    <div class="info-container">
+                        <h3 class="slider-title">طعم اصیل ایرانی</h3>
+                        <p  class="slider-info">مجموعه‌ای از غذاهای اصیل ایرانی با طعمی آشنا و خاطره‌انگیز.</p>
+                        <a class="slider-btn bouble-btn" href="iranian-menu.html">مشاهده منوی ایرانی</a>
+                    </div>
+                </div>
+
+                <div class="slide foreign-slider">
+                    <div class="info-container">
+                        <h3 class="slider-title">سفری به طعم‌های جهان</h3>
+                        <p class="slider-info">تجربه‌ای از طعم‌های محبوب و متفاوت از گوشه‌وکنار جهان.</p>
+                        <a class="slider-btn bouble-btn" href="iranian-menu.html">مشاهده منوی خارجی</a>
+                    </div>
+                </div>
+
+                <div class="slide fastfood-slider">
+                    <div class="info-container">
+                        <h3 class="slider-title">طعمی که نمی‌توان از آن گذشت</h3>
+                        <p class="slider-info">پیتزا، برگر، ساندویچ و سوخاری؛ انتخابی برای عاشقان فست‌ فود.</p>
+                        <a class="slider-btn bouble-btn" href="fastfood-menu.html">مشاهده منوی فست‌ فود</a>
+                    </div>
+                </div>
+
+                <div class="slide cafe-bakery-slider">
+                    <div class="info-container">
+                        <h3 class="slider-title">شیرینیِ لحظه‌های شما با کافه بیکری</h3>
+                        <p class="slider-info">از کیک و کوکی تا کروسان، شیرینی و نان‌های تازه و خوش‌عطر.</p>
+                        <a class="slider-btn bouble-btn" href="cafe-bakery.html">مشاهده کافه بیکری</a>
+                    </div>
+                </div>
             </div>
-            <div class="contacts">
-                <img class="pic-contacts" src="image/mail.svg" alt="ایمیل">
-                <img class="pic-contacts" src="image/call.svg" alt="شماره تماس">
-                <img class="pic-contacts" src="image/deskphone_w.svg" alt="فکس">
-                <img class="pic-contacts" src="image/pin_drop_w.svg" alt="ادرس">
+             <!-- فلش‌های جابه‌جایی اسلاید -->
+            <button class="slider-arrow prev" type="button"
+                aria-label="اسلاید قبلی">
+                &#10095;
+            </button>
+
+            <button class="slider-arrow next" type="button"
+                aria-label="اسلاید بعدی">
+                &#10094;
+            </button>
+         </div>
+        
+
+        <!-- قسمت منوی غذا -->
+        <div class="blog-center">
+                <article class="card">
+                    <div class="card-side card-front card-iranian">
+                        <h6 class="title-card">غذای ایرانی</h6>
+                    </div>
+
+                    <div class="card-side card-back card-iranian">
+                        <a class="btn-select-food" href="iranian-menu.html">مشاهده منو</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-side card-front card-foreign">
+                        <h6 class="title-card">غذای خارجی</h6>
+                    </div>
+
+                    <div class="card-side card-back card-foreign">
+                        <a class="btn-select-food" href="foreign-menu.html">مشاهده منو</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-side card-front card-fastfood">
+                        <h6 class="title-card">فست فود</h6>
+                    </div>
+
+                    <div class="card-side card-back card-fastfood">
+                        <a class="btn-select-food" href="fastfood-menu.html">مشاهده منو</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-side card-front card-cafe-bakery">
+                        <h6 class="title-card">کافه بیکری</h6>
+                    </div>
+
+                    <div class="card-side card-back card-cafe-bakery">
+                        <a class="btn-select-food" href="cafe-bakery.html">مشاهده منو</a>
+                    </div>
+                </article>
+        </div>
+    </header>
+
+    <!-- غذاهای ویژه -->
+     <main>
+        <article>
+            <section class="special-dishes">
+                <div class="special-dishes-container">
+                    <p class="section-subtitle">پیشنهاد ویژه سرآشپز</p>
+                    <h3 class="section-title">تخفیف های همیشگی برای پیشنهاد سرآشپز</h3>
+                    <p class="section-description">در رستوران سرآشپز برای خوشمزه ترین غذا ها همیشه تخفیف هست</p>
+                    <ul class="special-dishes-list">
+                        <li>
+                            <div class="dish-card">
+                                <a class="dish-card-image-link">
+                                    <figure class="dish-card-image-wrapper">
+                                        <img class="dish-card-image" src="./assets/images/73.jpg" alt="" loading="lazy">
+                                    </figure>
+                                </a>
+
+                                <div class="dish-card-content">
+                                    <h3 class="dish-card-title">
+                                        <p>خورشت ناردون در صفحه <span>غذاهای ایرانی</span></p>
+                                    </h3>
+                                    <a class="dish-card-button" href="iranian-menu.html">سفارش غذا</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="dish-card">
+                                <a class="dish-card-image-link">
+                                    <figure class="dish-card-image-wrapper">
+                                        <img class="dish-card-image" src="./assets/images/73.jpg" alt="" loading="lazy">
+                                    </figure>
+                                </a>
+
+                                <div class="dish-card-content">
+                                    <h3 class="dish-card-title">
+                                        <p>خورشت ناردون در صفحه <span>غذاهای ایرانی</span></p>
+                                    </h3>
+                                    <a class="dish-card-button" href="iranian-menu.html">سفارش غذا</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </article>
+     </main>
+
+
+    <!-- رزرو میز -->
+     <a class="book-table" href="صفحه رزرو میز">
+        <img src="./assets/images/general-medi/images/hero-icon.png" alt="رزرو میز">
+        <span>رزرو میز</span>
+     </a>
+
+    <!-- فوتر -->
+    <div class="footer-container">
+        <div class="title-container">
+            <img class="footer-logo" src="./assets/images/general-medi/images/logo.webp" alt="لوگو سرآشپز" loading="lazy">
+            <h3 class="footer-title"><span>سرآشپز</span><br>پلتفرم سفارش آنلاین غذا</h3>
+        </div>
+
+        <div class="footer-info">
+            <p class="description">
+                سرآشپز، جایی برای تجربه طعم های اصیل و فراموش نشدنی . با چند کلیک ساده غذاهای مورد علاقه ات را سفارش بده و درکوتاه ترین زمان ، بهترین کیفیت را درب منزل تحویل بگیر.
+            </p>
+        </div>
+
+        <div class="contact-container">
+            <div class="title-details">
+                <img class="contact-img" src="./assets/image/icon-svg/headset.svg" alt="">
+                <h3 class="footer-contact-title">راه های ارتباطی</h3>
+            </div>
+            
+            <div class="adress-container">
+                <div class="social-media-container">
+                    <div class="media-details">
+                        <img class="media-img" src="./assets/image/icon-svg/call-b.svg" alt="">
+                        <h3 class="media-title">آدرس فضای مجازی</h3>
+                    </div>
+                
+                    <ul class="accordion-list">
+                        <li class="accordion-item">
+                            <button class="accordion-btn">
+                                <img src="./assets/image/icon-svg/square-instagram-brands-solid-full.svg" alt="">
+                                <span>آدرس اینستاگرام</span>
+                                <img src="./assets/image/icon-svg/arrow_right.svg" alt="">
+                            </button>
+
+                            <div class="accordion-content">
+                                <p>021-12345678</p>
+                            </div>
+                        </li>
+
+                        <li class="accordion-item">
+                            <button class="accordion-btn">
+                                <img src="./assets/image/icon-svg/telegram-brands-solid-full.svg" alt="">
+                                <span>آدرس تلگرام</span>
+                                <img src="./assets/image/icon-svg/arrow_right.svg" alt="">
+                            </button>
+
+                        <div class="accordion-content">
+                            <p>021-12345678</p>
+                        </div>
+                        </li>
+
+                        <li class="accordion-item">
+                            <button class="accordion-btn">
+                                <img src="./assets/image/icon-svg/facebook-brands-solid-full.svg" alt="">
+                                <span>آدرس فیسبوک</span>
+                                <img src="./assets/image/icon-svg/arrow_right.svg" alt="">
+                            </button>
+
+                            <div class="accordion-content">
+                                <p>021-12345678</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact-details">
+                    <div class="contact-details">
+                        <img class="contact-details-img" src="./assets/image/icon-svg/call-b.svg" alt="">
+                        <h3 class="contact-title">شماره تماس های ما</h3>
+                    </div>
+
+                    <ul class="accordion-list">
+                        <li class="accordion-item">
+                            <button class="accordion-btn">
+                                <img src="./assets/image/icon-svg/square-instagram-brands-solid-full.svg" alt="">
+                                <span>تلفن ثابت</span>
+                                <img src="./assets/image/icon-svg/arrow_right.svg" alt="">
+                            </button>
+
+                            <div class="accordion-content">
+                                <p>021-12345678</p>
+                            </div>
+                        </li>
+
+                        <li class="accordion-item">
+                            <button class="accordion-btn">
+                                <img src="./assets/image/icon-svg/telegram-brands-solid-full.svg" alt="">
+                                <span>تلفن همراه</span>
+                                <img src="./assets/image/icon-svg/arrow_right.svg" alt="">
+                            </button>
+
+                            <div class="accordion-content">
+                                <p>021-12345678</p>
+                            </div>
+                        </li>
+
+                        <li class="accordion-item">
+                            <button class="accordion-btn">
+                                <img src="./assets/image/icon-svg/facebook-brands-solid-full.svg" alt="">
+                                <span>فکس</span>
+                                <img src="./assets/image/icon-svg/arrow_right.svg" alt="">
+                            </button>
+
+                            <div class="accordion-content">
+                                <p>021-12345678</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -265,6 +399,6 @@
         </div>
     </div>
 
-    <script src="./js/app.js"></script>
+    <script src="./assets/js/app.js"></script>
 </body>
 </html>
