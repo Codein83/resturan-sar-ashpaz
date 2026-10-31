@@ -95,10 +95,6 @@ body.loaded {
     inset: 0;
     min-height: 100vh;
     min-height: 100dvh;
-    /* top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0; */
     background-color: var(--primary-color4);
     z-index: 2000;
     display: grid;
@@ -108,7 +104,6 @@ body.loaded {
     visibility: visible;
     transition: transform 500ms ease 550ms,
                 visibility 0s linear 1050ms;
-    /* transition: 500ms ease; */
 }
 
 .preload>* {
@@ -120,7 +115,6 @@ body.loaded {
 }
 
 .preload.loaded {
-    /* transition-delay: 550ms; */
     transform: translateY(100%);
     visibility: hidden;
     pointer-events: none;
@@ -183,6 +177,7 @@ body.loaded {
 /* تنظیمات اسلایدر */
 .slider-container {
     height: 100vh;
+    height: 100svh;
 }
 
 .slider-wrapper {
