@@ -8,10 +8,14 @@ window.addEventListener("load", function () {
 // تغیر رنگ بک گراند هدر با کمی اسکرول عمودی
 window.addEventListener('scroll', function () {
     const nav = document.querySelector('.navbar');
+    const topbar =document.querySelector('.topbar-container')
+    
     if (window.scrollY > 50) {
       nav.classList.add('scrolled');
+      topbar.classList.add('scrolled');
     } else {
       nav.classList.remove('scrolled');
+      topbar.classList.remove('scrolled');
     }
   });
 
@@ -134,3 +138,46 @@ window.addEventListener("scroll", function () {
         show_book_table_btn.classList.remove("show-btn");
     }
 })
+
+// حرکت پارالاکس تصاویر کافه بیکری
+document.addEventListener("DOMContentLoaded", () => {
+
+    const cafeSection = document.querySelector(".cafe-bakery-container");
+    const images = document.querySelectorAll(".cafe-image");
+
+    if (!cafeSection || images.length === 0) return;
+
+    // غیرفعال کردن افکت در دستگاه‌های لمسی
+    if (window.matchMedia("(hover: none)").matches) return;
+
+    cafeSection.addEventListener("mousemove", (event) => {
+
+        const rect = cafeSection.getBoundingClientRect();
+
+        const mouseX = (event.clientX - rect.left) / rect.width - 0.5;
+        const mouseY = (event.clientY - rect.top) / rect.height - 0.5;
+
+        images.forEach((image) => {
+
+            const speed = Number(image.dataset.speed);
+
+            const moveX = mouseX * speed;
+            const moveY = mouseY * speed;
+
+            image.style.transform =
+                `translate(${moveX}px, ${moveY}px)`;
+
+        });
+
+    });
+
+    // بازگشت تصاویر به جای اصلی
+    cafeSection.addEventListener("mouseleave", () => {
+
+        images.forEach((image) => {
+            image.style.transform = "translate(0, 0)";
+        });
+
+    });
+
+});

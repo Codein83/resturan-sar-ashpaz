@@ -400,6 +400,7 @@ body.loaded {
     padding: 10px 5px;
     background: rgba(0, 0, 0, 0.247);
     z-index: 1000;
+    transition: top 0.3s ease, background-color 0.3s ease;
 }
 
 .scrolled{
@@ -503,6 +504,7 @@ body.loaded {
     backdrop-filter: blur(5px) !important;
     margin-top: -29px;
     width: 100%;
+    /* height: 100vh; */
     transform: translateX(-100%);
     transition: transform 0.5s ease-in-out;
     text-align: center;
@@ -646,8 +648,8 @@ input[type="search"]::-webkit-search-cancel-button {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 .card-foreign {
@@ -657,8 +659,8 @@ input[type="search"]::-webkit-search-cancel-button {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 .card-fastfood {
@@ -668,8 +670,8 @@ input[type="search"]::-webkit-search-cancel-button {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 .card-cafe-bakery {
@@ -679,19 +681,19 @@ input[type="search"]::-webkit-search-cancel-button {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 .blog-center {
     background: var(--primary-color10);
+    /* backdrop-filter: blur(10px); */
     display: flex;
     justify-content: space-evenly;
     position: sticky;
     top: 65px;
     width: 100%;
-    padding-block: 8px;
-    animation: textIn 5s ease forwards;
+    padding: 15px 0;
     z-index: 900;
 }
 
@@ -730,9 +732,13 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .title-card {
     position: relative;
-    top: 25px;
+    top: 16px;
     text-align: center;
     color: var(--primary-color11);
+}
+
+.title-card:nth-child(2){
+    top: 9px;
 }
 
 .card-back {
@@ -748,8 +754,8 @@ input[type="search"]::-webkit-search-cancel-button {
     padding: 5px;
     box-shadow: 0 0 5px 2.5px var(--primary-color5);
     display: block;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     position: relative;
     bottom: 5px;
@@ -793,6 +799,31 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* غذاهای ویژه */
+.shape-image{
+    animation: move-pic 5s linear infinite;
+}
+
+@keyframes move-pic{
+    0%, 100%{
+        transform: translateY(100px);
+    }
+}
+
+.shape1{
+    width: 343px;
+    height: 345px;
+    position: absolute;
+    bottom: -430px;
+    /* z-index: 1; */
+}
+
+.shape2{
+    width: 343px;
+    height: 345px;
+    position: absolute;
+    bottom: 430px;
+}
+
 .special-dishes{
     padding-block: 70px;
 }
@@ -800,6 +831,16 @@ input[type="search"]::-webkit-search-cancel-button {
 .special-dishes-container{
     padding-inline: 20px;
 }
+
+/* .special-dishes-container::after{
+    content: url("../assets/images/general-medi/images/shape-2.webp");
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    bottom: 1700px;
+    z-index: -1;
+} */
 
 .section-subtitle{
     color: var(--primary-color11);
@@ -834,10 +875,11 @@ input[type="search"]::-webkit-search-cancel-button {
 .special-dishes-list{
     display: grid;
     gap: 40px;
+    justify-content: space-evenly;
 }
 
 .dish-card{
-
+    max-width: 400px;
 }
 
 /* قاب عکس غذای ویژه */
@@ -858,7 +900,7 @@ input[type="search"]::-webkit-search-cancel-button {
     left: 50%;
     /* right: 50%; */
     width: 100px;
-    background-color: #d4af37;
+    background-color: var(--primary-color11);
     -webkit-mask-image: url("../assets/images/general-medi/images/form-pattern.webp");
     mask-image: url("../assets/images/general-medi/images/form-pattern.webp");
     -webkit-mask-repeat: repeat;
@@ -878,14 +920,30 @@ input[type="search"]::-webkit-search-cancel-button {
     width: 100%;
     overflow: hidden;
     margin: 0;
+    border-radius: 10px;
+}
+
+/* بردر ثابت داخل تصویر  */
+.dish-card-image-wrapper::before{
+    content: "";
+    position: absolute;
+    inset: 15px;
+    border: 1.9px solid var(--primary-color10);
+    border-radius: 10px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* چرخش کاور هنگام هاور */
+.dish-card-image-link:hover::before{
+    transform: perspective(600px) rotateY(180deg) translateX(50%);
 }
 
 /* لایه شاین */
-.dish-card-image-wrapper::after{
+.dish-card-image-wrapper::after {
     content: "";
     position: absolute;
     inset: 0;
-    width: 100%;
     z-index: 2;
     background: linear-gradient(
         135deg,
@@ -898,24 +956,15 @@ input[type="search"]::-webkit-search-cancel-button {
     transform: translate(-100%, -100%);
     pointer-events: none;
     opacity: 0;
-}
-
-/* چرخش کاور هنگام هاور */
-.dish-card-image-link:hover::before{
-    transform: perspective(600px) rotateY(180deg) translateX(50%);
-}
-
-/* حرکت شاین از بالا سمت چپ به پایین سمت راست */
-.dish-card-image-link:hover .dish-card-image-wrapper::after{
-    animation: dishShine 2s ease-in-out forwards;
+    animation: dishShine 5s ease-in-out infinite;
 }
 
 @keyframes dishShine{
-    0%{
+    0%,65%{
         transform: translate(-100%, -100%);
         opacity: 0;
     }
-    15%{
+    70%{
         opacity: 1;
     }
     100%{
@@ -928,13 +977,22 @@ input[type="search"]::-webkit-search-cancel-button {
 .dish-card-image{
     display: block;
     width: 100%;
-    height: auto;
+    height: 350px;
     object-fit: cover;
+    border-radius: 10px;
+    margin: auto;
+    transition: transform 0.4s ease;
+}
+
+.dish-card-image-link:hover .dish-card-image{
+    transform: scale(1.08);
+    cursor: pointer;
 }
 
 .dish-card-content{
     text-align: center;
     margin-top: 30px;
+    height: 60px;
 }
 
 .dish-card-title{
@@ -976,6 +1034,215 @@ input[type="search"]::-webkit-search-cancel-button {
   transform: scaleX(1);
   opacity: 1;
 }
+
+/* قسمت کافه بیکری صفحه اصلی */
+/* بخش کافه بیکری */
+.cafe-bakery-container {
+    position: relative;
+    display: grid;
+    /* grid-template-columns: 1fr 1.2fr; */
+    align-items: center;
+    gap: 50px;
+    min-height: 600px;
+    padding: 40px 7%;
+    background: var(--primary-color1);
+    color: var(--primary-color2);
+    overflow: hidden;
+}
+
+/* قسمت متن */
+.cafe-bakery-content {
+    text-align: center;
+    max-width: 480px;
+    margin-inline: auto;
+}
+
+.cafe-bakery-subtitle {
+    color: var(--primary-color11);
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.cafe-bakery-subtitle::after{
+    content: url("../assets/images/general-medi/images/separator.svg");
+    display: block;
+    width: 80px;
+    margin-inline: auto;
+    margin-block-start: 5px;
+}
+
+.cafe-bakery-title {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.cafe-bakery-title span {
+    color: var(--primary-color11);
+    font-size: 20px;
+}
+
+.cafe-bakery-description {
+    font-size: 18px;
+    line-height: 2;
+    color: #c5c5c5;
+    margin-bottom: 25px;
+}
+
+.cafe-bakery-contact-title {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.cafe-bakery-phone {
+    display: block;
+    color: var(--primary-color11);
+    margin-bottom: 25px;
+    font-size: 25px;
+}
+
+.cafe-bakery-button {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid var(--primary-color11);
+    color: var(--primary-color11);
+    text-decoration: none;
+    transition: 300ms ease;
+}
+
+.cafe-bakery-button:hover {
+    background-color: #d4af37;
+    color: #171916;
+}
+
+/* قسمت تصاویر */
+.cafe-bakery-images {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    perspective: 1000px;
+}
+
+/* تنظیم مشترک تصاویر */
+.cafe-image {
+    position: absolute;
+    overflow: hidden;
+    will-change: transform;
+    transition: transform 300ms ease-out;
+}
+
+.cafe-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* تصویر اصلی */
+.cafe-image-main {
+    top: 0;
+    right: 10%;
+    width: 75%;
+    height: 75%;
+    z-index: 1;
+}
+
+.bg-shape{
+    width: 200px;
+}
+
+/* تصویر سرآشپز */
+.cafe-image-chef {
+    bottom: -1%;
+    left: 2%;
+    width: 30%;
+    height: 40%;
+    z-index: 2;
+}
+
+/* .cafe-image-chef::before{
+    content: "";
+    position: absolute;
+    mask-image: url('./images/general-medi/images/footer-form-bg.webp');
+    mask-repeat: no-repeat;
+    mask-size: 100px auto;
+    display: block;
+    width: 200px;
+    height: 300px;
+    background-color: var(--primary-color11);
+    pointer-events: none;
+    overflow: visible;
+
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+
+} */
+
+/* تصویر دسر */
+.cafe-image-detail {
+    bottom: 5%;
+    right: 5%;
+    width: 30%;
+    height: 30%;
+    z-index: 3;
+    border: 5px solid #171916;
+}
+
+/* نشان کافه */
+.cafe-bakery-badge {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    z-index: 4;
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--primary-color11);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color11);
+    background-color: var(--primary-color10);
+}
+
+.cafe-bakery-badge::after{
+    content: "";
+    background-image: url(../assets/images/general-medi/images/badge-bg.png);
+    width: 125%;
+    height: 100%;
+    display: inline-block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    inset: 0;
+    animation: rotate360 15s linear infinite;
+    position: relative;
+    top: -60px;
+}
+
+@keyframes rotate360{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(1turn);
+    }
+}
+
+.cafe-bakery-badge span {
+    font-size: 11px;
+}
+
+.cafe-bakery-badge strong {
+    font-size: 19px;
+}
+
+
+
+
 
 /* قسمت منو غذاها */
 .titel-food {
@@ -1579,7 +1846,6 @@ span {
 /* RWD */
 /* Tablet */
 @media screen and (min-width:576px) {
-
     /* تنظیمات عمومی */
     .svg-icons {
         width: 22px;
@@ -1632,6 +1898,15 @@ span {
         flex-shrink: 0;
     }
 
+    /* تنظیمات هدر فیکس */
+    .header-container{
+        top: 35px;
+    }
+
+    .header-container.scrolled{
+        top: 0;
+    }
+
     /* تنظیمات دکمه ثبت نام */
     .regester-btn {
         width: 65px;
@@ -1669,8 +1944,11 @@ span {
 
 /* Laptop */
 @media (min-width: 992px) {
-
     /* تنظیمات تاپ بار */
+    .topbar-container{
+        height: 50px;
+    }
+
     .contact-topbar-container {
         justify-content: flex-end;
     }
@@ -1683,62 +1961,127 @@ span {
         gap: 25px;
     }
 
-    /* ریسپانسیو منوی کشویی */
-    /* .checkbox,
-    .hamburger-lines {
+    /* تنظیمات هدر فیکس */
+    .checkbox,
+    .hamburger-lines{
         display: none;
-    } */
+    }
 
-    /* .menu-title {
+    .header-container{
+        height: 65px;
+        display: flex;
+        direction: rtl;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        top: 50px;
+        transition: top 0.3s ease;
+    }
+
+    .header-container.scrolled{
+        top: 0;
+    }
+    
+    .menu-title {
         display: none;
-    } */
+    }
 
-    /* .menu-items {
+    .etemad-logo{
+        display: none;
+    }
+
+    .menu-items{
         all: unset;
-        position: absolute;
-        left: 145px;
-        top: 19px;
-        z-index: 1000;
-        position: fixed;
-    } */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-    /* .card-center {
+    .logo-img{
+        order: 1;
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        margin-top: 10px;
+    }
+
+    .content-search{
+        order: 2;
+        height: 30px;
+        margin-top: 10px;
+    }
+
+    .menu{
+        order: 3;
+    }
+
+    .regester-btn{
+        order: 4;
+        align-self: center;
+        flex-shrink: 0;
+        margin-left: 20px;
+        margin-top: 8px;
+    }
+
+    .card-center{
         all: unset;
-    } */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 10px;
+    }
 
-    /* .menu-auth {
-        margin-left: -135px;
-    } */
+    .card-center li:nth-child(6),
+    .card-center li:nth-child(7){
+        display: none;
+    }
 
-    /* .card-center li {
-        all: unset;
-        display: inline-block;
-        padding-left: 10px;
-    } */
-
-    /* .menu-item:hover {
-        padding: 5px;
-        border-radius: 5px;
+    .menu-item{
+        margin-top: 0;
+        white-space: nowrap;
         background: none;
-    } */
+        padding: 0 5px;
+        line-height: 25px;
+        font-size: 15px;
+        border: none;
+    }
 
-    /* .menu-item {
-        all: unset;
-        color: var(--white-color2);
-        margin-left: 10px;
-    } */
+    .menu-item:hover {
+        background: none;
+    }
+
+    /* تنظیمات غذاهای ویژه */
+    .special-dishes-list{
+        grid-template-columns: repeat(2, 1fr);
+        justify-self: center;
+    }
 }
 
 /* Desktop */
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {  
+    /* تنظیمات غذاهای ویژه */
+    .dish-card{
+        max-width: 300px;
+    }
+    
+    .special-dishes-list{
+        gap: 540px;
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    /* .special-dishes-list:nth-child(1){
+        position: relative;
+        bottom: 20px;
+        left: 50px;
+    } */
+}
 
 
 
 
 
 @media screen and (min-width:700px) {
-
-
     /* ریسپانسیو دکمه ثبت نام */
     .login {
         display: none;
